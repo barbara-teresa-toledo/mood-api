@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"github.com/go-chi/jwtauth/v5"
 	"mood-api/internal/service"
 	"net/http"
 
@@ -10,6 +11,7 @@ import (
 
 type AuthHandler struct {
 	AuthService *service.AuthService
+	TokenAuth   *jwtauth.JWTAuth
 }
 
 func (h *AuthHandler) SignUp(w http.ResponseWriter, r *http.Request) {

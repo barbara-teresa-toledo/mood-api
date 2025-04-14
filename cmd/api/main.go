@@ -43,7 +43,7 @@ func main() {
 
 	r.Group(func(r chi.Router) {
 		r.Use(jwtauth.Verifier(tokenAuth))
-		r.Use(jwtauth.Authenticator)
+		r.Use(jwtauth.Authenticator(tokenAuth))
 
 		r.Post("/mood", moodHandler.CreateMoodEntry)
 		r.Get("/report", moodHandler.GetMoodReport)
